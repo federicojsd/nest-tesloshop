@@ -69,6 +69,17 @@ export class AuthService {
 
 
 /*
+  --> CHECK STATUS
+*/
+async checkAuthStatus(user: User) {
+  return {
+    ...user,
+    token: this.getJwtToken({ id: user.id })
+  };
+  
+}
+
+/*
   --> GENERATE JWT
 */
   private getJwtToken( payload: JwtPayload ){
